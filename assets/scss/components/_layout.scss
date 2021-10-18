@@ -8,12 +8,13 @@ html {
 }
 #sidebar {
 	grid-area: sidebar;
+	max-height: 600px;
 }
 
 #page-grid {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 100%;
 }
 #header {
 	grid-area: header;
@@ -23,9 +24,9 @@ html {
 }
 #content {
 	grid-area: 'content';
-	padding: 15px;
-	overflow: auto;
+	padding: 15px;	
 	flex: 1;
+	overflow-y: auto;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -46,6 +47,12 @@ html {
 	scrollbar-color: $green $darkgreen;
 }
 @media screen and (min-width: 768px) {
+	#content{
+		overflow: auto;
+	}
+	#sidebar{
+		max-height: none;
+	}
 	#page-grid {
 		overflow: auto;
 		height: 100vh;
