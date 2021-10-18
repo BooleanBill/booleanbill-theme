@@ -1,0 +1,50 @@
+#crt_switch {
+	cursor: pointer;
+	outline: none;
+	position: relative;
+	font-family: inherit;
+	color: inherit;
+	height: 30px;
+	margin: 0 5px;
+	width: 60px;
+	background: none;
+	border: 2px solid $green;
+	padding: 2px;
+	display: inline-flex;
+
+	&::before {
+		font-size: inherit;
+		position: absolute;
+		content: 'CRT';
+		font-family: inherit;
+		color: inherit;
+		top: 0;
+		left: 50%;
+		transform: translatey(-110%) translateX(-50%);
+	}
+	&.on {
+		&:after {
+			height: 100%;
+			width: 50%;
+			background-color: $green;
+			content: '';
+			display: block;
+		}
+	}
+	&.off {
+		&:after {
+			margin-left: auto;
+			height: 100%;
+			width: 50%;
+			background-color: $green;
+			content: '';
+			display: block;
+		}
+	}
+}
+.switch-wrap {
+	padding-top: 16px;
+	margin-left: auto;
+	display: block;
+	white-space: nowrap;
+}

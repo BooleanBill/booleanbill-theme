@@ -1,0 +1,13 @@
+<footer id="footer">
+    <span>
+        ©
+        {{ now.Format "2006" }}
+        BooleanBill. All rights reserved.</span>
+    <div class="switch-wrap">
+        <label>ON</label>
+        <button id="crt_switch" class="on"></button>
+        <label>OFF</label>
+    </div>
+</footer>
+{{ $js := resources.Get "js/main.js" }}
+<script src="{{ $js.Permalink }}"></script>

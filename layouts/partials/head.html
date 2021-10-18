@@ -1,0 +1,10 @@
+<head>
+    <meta charset="UTF-8">
+        {{ $styles := resources.Get "scss/main.scss" | resources.ToCSS }}
+        <link rel="shortcut icon" type="image/x-icon" href="/img/favicon-96x96.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{{ .Site.Title }}
+            -
+            {{ .Title }}</title>
+        <link rel="stylesheet" href="{{ $styles.Permalink }}"/></head>
+</head>

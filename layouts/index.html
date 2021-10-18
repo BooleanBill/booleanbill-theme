@@ -1,0 +1,30 @@
+<html lang="en">
+    {{ partial "head" . }}
+    <body class="crt">
+        <div id="page-grid" class="wrapper">
+            {{ partial "header" . }}
+            <main id="content">
+                {{ .Content }}
+            </main>
+            <nav id="sidebar">
+                <h2>Index</h2>
+                {{ if .Pages }}
+                    <ul>
+                        {{ range .Pages }}
+                            <li>
+                                <a href="{{ .Permalink }}">
+                                    <h3>{{ .Title }}</h3>
+                                </a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                {{ else }}
+                    <p>Looks like there's nothing here yet.</p>
+                {{ end }}
+
+            </nav>
+
+            {{ partial "footer" . }}
+        </div>
+    </body>
+</html>
