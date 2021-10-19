@@ -1,0 +1,25 @@
+<html lang="en">
+    {{ partial "head" . }}
+    <body class="crt">
+        <div id="page-grid" class="wrapper">
+            {{ partial "header" . }}
+            <main id="content">
+                <small>{{ .Date.Format "Jan 02, 2006"}}</small>
+                <h1>{{.Title}}</h1>
+                {{ .Content }}
+            </main>
+            <nav id="sidebar">
+                <h2>Index</h2>
+                <ul>
+                    <li>
+                        <a href="{{ .Site.BaseURL }}">
+                            <h3>go back</h3>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            {{ partial "footer" . }}
+        </div>
+    </body>
+</html>
+
