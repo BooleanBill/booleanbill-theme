@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="{{.Site.LanguageCode}}">
     {{ partial "head" . }}
     <body>
         <div id="page-grid" class="wrapper">
@@ -13,7 +13,13 @@
                 <ul>
                     <li>
                         <a href="{{ .Parent.Permalink }}">
-                            <h3>go back</h3>
+                        <h3>
+                            {{ if eq .Site.LanguageCode "en"}}
+                                go back
+                            {{else}}
+                                Zurück
+                            {{end}}
+                        </h3>
                         </a>
                     </li>
                 </ul>

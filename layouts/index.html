@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="{{.Site.LanguageCode}}">
     {{ partial "head" . }}
     <body>
         <div id="page-grid" class="wrapper">
@@ -19,11 +19,13 @@
                         {{ end }}
                     </ul>
                 {{ else }}
-                    <p>Looks like there's nothing here yet.</p>
+                    {{ if eq .Site.LanguageCode "en"}}
+                        <p>Looks like there's nothing here yet.</p>
+                    {{else}}
+                        <p>Hier scheint noch nichts zu sein.</p>
+                    {{end}}
                 {{ end }}
-
             </nav>
-
             {{ partial "footer" . }}
         </div>
     </body>
