@@ -10,7 +10,7 @@
                 <h2>Index</h2>
                 {{ if .Pages }}
                     <ul>
-                        {{ range .Pages }}
+                        {{ range where .Pages "Section" "!=" "legal" }}
                             <li>
                                 <a href="{{ .Permalink }}">
                                     <h3>{{ .Title }}</h3>
