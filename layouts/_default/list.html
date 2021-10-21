@@ -1,37 +1,25 @@
-<html lang="{{.Site.LanguageCode}}">
-    {{ partial "head" . }}
-    <body>
-        <div id="page-grid" class="wrapper">
-            {{ partial "header" . }}
-            <main id="content">
-                {{ .Content }}
-            </main>
-            <nav id="sidebar">
-                <h2>Index</h2>
-                <ul>
-                    {{ range .Pages }}
-                        <li>
-                            <a href="{{ .Permalink }}">
-                                <h3>{{ .Title }}</h3>
-                            </a>
-                        </li>
-                    {{ end }}
-                    <li>
-                        <a href="{{ .Parent.Permalink }}">
-                            <h3>
-                                {{ if eq .Site.LanguageCode "en-us"}}
-                                    go back
-                                {{else}}
-                                    Zurück
-                                {{end}}
-                            </h3>
-                        </a>
-                    </li>
-                </ul>
-
-            </nav>
-
-            {{ partial "footer" . }}
-        </div>
-    </body>
-</html>
+{{ define "sidebar" }}
+<nav id="sidebar">
+	<h2>Index</h2>
+	<ul>
+		{{ range .Pages }}
+		<li>
+			<a href="{{ .Permalink }}">
+				<h3>{{ .Title }}</h3>
+			</a>
+		</li>
+		{{ end }}
+		<li>
+			<a href="{{ .Parent.Permalink }}">
+				<h3>
+					{{ if eq .Site.LanguageCode "en-us"}}
+                        go back 
+                    {{else}}
+					    Zurück 
+                    {{end}}
+				</h3>
+			</a>
+		</li>
+	</ul>
+</nav>
+{{ end }}

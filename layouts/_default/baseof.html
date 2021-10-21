@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
+<html lang="{{.Site.LanguageCode}}">
+	{{ partial "head" . }}
+	<body>
+		<div id="page-grid" class="wrapper">
+			{{ partial "header" . }}
+            {{ block "main" .}}
+                <main id="content">
+                  {{.Content}}
+                </main>
+            {{ end }}
+			{{ block "sidebar" .}}
+            {{end}}
+            {{ partial "footer" . }}
+		</div>
+	</body>
 </html>
