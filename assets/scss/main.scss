@@ -1,1 +1,6 @@
-@import "base/variables", "base/fonts", "base/typo", "components/header", "components/footer", "components/layout", "components/sections", "components/content", "components/switch", "components/sidebar", "elements/crt";
+@import 'vendor/fontawesome/fontawesome.scss', 'vendor/fontawesome/regular.scss',
+	'vendor/fontawesome/solid.scss', 'vendor/fontawesome/brands.scss',
+	'base/variables', 'base/fonts', 'base/typo', 'components/header',
+	'components/footer', 'components/layout', 'components/sections',
+	'components/content', 'components/switch', 'components/sidebar',
+	'elements/crt';

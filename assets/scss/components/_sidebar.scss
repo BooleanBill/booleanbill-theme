@@ -12,31 +12,52 @@
 	ul {
 		padding: 0;
 	}
+	i {
+		font-size: 24px;
+		display: inline-block;
+		margin-right: 5px;
+	}
+	.active{
+		& > a{
+			text-decoration: underline;
+		}
+	}
 	li {
-		padding-bottom: 10px;
+		padding: 10px 0;
 		ul {
-			margin-left: 10px;
-			
+			margin-left: 15px;
 			li {
-				padding-top: 5px;
-                border-left: 2px solid $green;
-                display: flex;
-                align-items: center;
+				border-left: 2px solid $green;
+				align-items: center;
+				position: relative;
+				padding-left: 10px;
 				a {
 					display: block;
-                    flex: 1;
+					padding-left: 5px;
 				}
 				&::before {
-					display: block;
-					width: 40px;
+					position: absolute;
+					width: 10px;
 					height: 2px;
 					background-color: $green;
 					content: '';
 					margin-right: 5px;
-					vertical-align: middle;
+					left: 0;
+					top: 1.2rem;
 				}
-				&:first-child {
-					padding-top: 15px;
+				&:last-child {
+					border-left: none;
+					&::before {
+						width: 10px;
+						height: 1.3rem;
+						border-bottom: 2px solid $green;
+						border-left: 2px solid $green;
+						content: '';
+						margin-right: 5px;
+						background-color: transparent;
+						align-self: flex-start;
+						top: 0;
+					}
 				}
 			}
 		}

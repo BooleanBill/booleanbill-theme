@@ -1,20 +1,27 @@
+{{ $pl := .Permalink }}
 <nav id="sidebar">
-    <ul>
-        {{ range where (where .Site.Home.Pages "Section" "!=" "legal") "Kind" "section"}}
-            <li>
-                <a href="{{.Permalink}}">{{ partial "svgs/icons8-folder.svg" . }}{{.Title}}</a>
-                {{ if .Pages}}
-                <ul>
-                    {{range .Pages}}
+	<ul>
+        <li>
+            <a href="{{.Site.BaseURL}}"><i class="fas fa-server"></i>{{.Site.Home.Title}}</a>
+            <ul>
+                {{ range where (where .Site.Home.Pages "Section" "!=" "legal") "Kind"
+                "section"}}
+                <li>
+                    <a href="{{.Permalink}}">{{ if eq $pl .Permalink}}<i class="far fa-folder-open"></i>{{ else }}<i class="far fa-folder"></i>{{end}}{{.Title}}</a>
+                    {{ if or (and .Pages (eq .Permalink $pl))}}
+                    <ul>
+                        {{range .Pages}}
                         <li>
-                            <a href="{{.Permalink}}">{{.Title}}</a>
-                         </li> 
+                            <a href="{{.Permalink}}">{{ if eq .Kind "section"}}<i class="far fa-folder"></i>{{ else }}<i class="far fa-file"></i>{{ end }}{{.Title}}</a
+                            >
+                        </li>
+                        {{end}}
+                    </ul>        
                     {{end}}
-                </ul>
-
+                </li>
                 {{end}}
-            </li>
-        {{end}}       
-
-    </ul>
+            </ul>
+        </li>
+	</ul>
 </nav>
+

@@ -1,0 +1,28 @@
+{{ $pl := .Permalink }}
+<nav id="sidebar">
+	<ul>
+        <li {{if eq .Permalink .Site.Home.Permalink}}class="active"{{end}}><a href="{{.Site.Home.Permalink}}"><i class="fas fa-server"></i>{{.Site.Home.Title}}</a>
+            <ul>
+             {{ template "sidebarnav" (dict "p1" .Site.Home "current" .) }}
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+{{ define "sidebarnav" }} 
+    {{$current := .current}}
+
+    {{if .p1.Pages}}
+        {{ range where .p1.Pages "Type" "!=" "legal"  }} 
+            <li {{if eq .Permalink $current.Permalink}}class="active"{{end}}>
+                <a href="{{.Permalink}}">{{ if eq .Kind "section"}}{{if or (.IsAncestor $current) (eq .Permalink $current.Permalink)}}<i class="far fa-folder-open"></i>{{else}}<i class="far fa-folder"></i>{{end}}{{ else }}<i class="far fa-file"></i>{{ end }}{{.Title}}</a>  
+                {{if and (.Pages) (or (eq .Title $current.Title) (.IsAncestor $current))}}
+                        <ul>
+                            {{ template "sidebarnav" (dict "p1" . "current" $current) }}
+                        </ul>
+                {{end}}               
+            </li>
+        {{ end }}
+    {{ end }}
+{{ end }}
