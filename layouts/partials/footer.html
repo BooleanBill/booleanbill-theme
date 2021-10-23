@@ -1,21 +1,22 @@
 <footer id="footer">
-	<div>
-		© {{ now.Format "2006" }} BooleanBill. Built with
-		<a href="https://gohugo.io/">Hugo</a>.
-		<div class="legals-menu">
-			{{range where .Site.RegularPages "Type" "legal"}}
-
-			<a href="{{.Permalink}}"><small>{{.Title}}</small></a>
-
-			{{end}}
-		</div>
-	</div>
-
-	<div class="switch-wrap">
-		<label>ON</label>
-		<button id="crt_switch"></button>
-		<label>OFF</label>
-	</div>
+    <div>
+        ©
+        {{ now.Format "2006" }}
+        BooleanBill. Built with
+        <a href="https://gohugo.io/">Hugo</a>.
+        <div class="legals-menu">
+            {{range where .Site.RegularPages "Type" "legal"}}
+                <a href="{{.Permalink}}">
+                    <small>{{.Title}}</small>
+                </a>
+            {{end}}
+        </div>
+    </div>
+    <div class="switch-wrap">
+        <label>ON</label>
+        <button id="crt_switch"></button>
+        <label>OFF</label>
+    </div>
 </footer>
 {{ $js := resources.Get "js/main.js" }}
 <script src="{{ $js.Permalink }}"></script>

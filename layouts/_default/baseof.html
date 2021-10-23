@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{.Site.LanguageCode}}">
-	{{ partial "head" . }}
-	<body>
-		<div id="page-grid" class="wrapper">
-			{{ partial "header" . }}
+    {{ partial "head" . }}
+    <body>
+        <div id="page-grid" class="wrapper">
+            {{ partial "header" . }}
             <main id="content">
-            {{ block "main" .}}                
-                  {{.Content}}              
+                {{ block "main" .}}
+                {{.Content}}
             {{ end }}
-              </main>
-			{{ block "sidebar" .}}
-                {{ partial "sidebar-alt" . }}
-            {{end}}
-            {{ partial "footer" . }}
-		</div>
-	</body>
-</html>
+        </main>
+        {{ block "sidebar" .}}
+        {{ partial "sidebar-alt" . }}
+    {{end}}
+    {{ partial "footer" . }}
+</div></body></html>
