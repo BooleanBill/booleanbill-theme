@@ -14,13 +14,13 @@ crt.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+	console.log('DOMContentLoaded.');
 	let crtChoice = localStorage.getItem('crt');
 	if (crtChoice === 'off' || crtChoice === null) {
 		document.body.classList.remove('crt');
 		crt.classList.add('off');
 		crt.classList.remove('on');
-	}
-	else{
+	} else {
 		document.body.classList.add('crt');
 		crt.classList.remove('off');
 		crt.classList.add('on');
