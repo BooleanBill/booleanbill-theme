@@ -14,7 +14,6 @@ crt.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-	console.log('DOMContentLoaded.');
 	let crtChoice = localStorage.getItem('crt');
 	if (crtChoice === 'off' || crtChoice === null) {
 		document.body.classList.remove('crt');
