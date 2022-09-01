@@ -1,5 +1,5 @@
 html {
-	font-family: 'Roboto Mono';
+	font-family: "Roboto Mono";
 	color: $green;
 	a {
 		color: inherit;
@@ -13,13 +13,17 @@ html {
 		list-style-type: none;
 	}
 }
-#content a {
-	color: $purple;
-	font-weight: normal;
-	&:hover {
-		color: $darkgreen;
-	}
-}
+
 #content {
 	font-weight: 200;
+	a {
+		color: $purple;
+		font-weight: normal;
+		&:hover {
+			color: $darkgreen;
+		}
+	}
+	h4 {
+		font-weight: 700;
+	}
 }

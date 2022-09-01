@@ -1,5 +1,9 @@
-#content{
-    img{
+#content {
+    img {
         max-width: 100%;
+    }
+    hr {
+        background-color: currentColor;
+        border-color: $green;
     }
 }

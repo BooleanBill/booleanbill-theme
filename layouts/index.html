@@ -1,3 +1,16 @@
 {{ define "sidebar" }}
     
 {{ end }}
+
+{{define "main"}}
+    {{ .Content }}
+    <h3>Latest Posts</h3>
+    {{ with .Site.GetPage "/Posts" }}
+        <ul>
+            {{ range .Pages}}
+                <h4 class="post--title">{{ .Title }}</h4>
+                <div class="post--summary">{{ .Summary }}</div>
+            {{ end }}
+        </ul>
+    {{ end }}
+{{ end }}
