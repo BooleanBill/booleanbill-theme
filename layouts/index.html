@@ -3,9 +3,9 @@
 {{ end }}
 
 {{define "main"}}
-    {{ .Content }}
-    <h3>Latest Posts</h3>
+    {{ .Content }}    
     {{ with .Site.GetPage "/Posts" }}
+    <h3>Latest Posts</h3>
         <ul>
             {{ range .Pages}}
                 <h4 class="post--title">{{ .Title }}</h4>
