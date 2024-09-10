@@ -1,3 +1,6 @@
+{{ $opts := dict "targetPath" "main.js" "sourcemap" "inline" }}
+{{ $built := resources.Get "js/main.js" | js.Build $opts | resources.Minify }}
+
 <footer id="footer">
     <div>
         ©
@@ -6,9 +9,9 @@
         <a href="https://gohugo.io/">Hugo</a>.
         <div class="legals-menu">
             {{range where .Site.RegularPages "Type" "legal"}}
-                <a href="{{.Permalink}}">
-                    <small>{{.Title}}</small>
-                </a>
+            <a href="{{.Permalink}}">
+                <small>{{.Title}}</small>
+            </a>
             {{end}}
         </div>
     </div>
@@ -18,5 +21,4 @@
         <label>OFF</label>
     </div>
 </footer>
-{{ $js := resources.Get "js/main.js" }}
-<script src="{{ $js.Permalink }}"></script>
+<script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
