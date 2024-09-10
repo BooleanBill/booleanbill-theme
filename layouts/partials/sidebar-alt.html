@@ -14,7 +14,7 @@
 {{ define "sidebarnav" }}
 	{{$current := .current}}
 	{{if .p1.Pages}} 
-		{{ range where .p1.Pages "Type" "!=" "legal" }}
+		{{ range where .p1.Pages "Type" "not in" (slice "legal" "secret") }}
 			<li {{if eq .Permalink $current.Permalink}} class="active" {{end}}>
 				<a href="{{.Permalink}}">
 					{{ if eq .Kind "section"}} {{if or (.IsAncestor $current) (eq .Permalink $current.Permalink) }}
